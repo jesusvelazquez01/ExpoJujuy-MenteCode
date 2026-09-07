@@ -15,11 +15,13 @@ export function Navbar() {
           />
         </a>
         <nav className="desktop-nav" aria-label="Navegación principal">
-          <a href="#sectores">La Expo</a>
+          <a href="#provincia">La Expo</a>
           <a href="#sectores">Expositores</a>
           <a href="#agenda">Agenda</a>
-          <a href="#mapa">Mapa</a>
-          <a href="#descubri">Información</a>
+          <a href="#noticias">Noticias</a>
+          <a href="#contacto">Contacto</a>
+          <a href="#dudas">Dudas</a>
+          <a href="#revista">Agenda</a>
         </nav>
         <a className="nav-cta" href="#planifica">
           Obtener entrada <span>↗</span>
@@ -29,11 +31,14 @@ export function Navbar() {
             <span />
             <span />
           </summary>
-          <nav>
-            <a href="#sectores">La Expo</a>
+          <nav aria-label="Navegación móvil">
+            <a href="#provincia">La Expo</a>
             <a href="#sectores">Expositores</a>
-            <a href="#agenda">Agenda</a>
-            <a href="#mapa">Mapa</a>
+            <a href="#agenda">Agenda Interactiva</a>
+            <a href="#noticias">Noticias</a>
+            <a href="#contacto">Contacto</a>
+            <a href="#dudas">Dudas</a>
+            <a href="#revista">Revista Interactiva</a>
             <a href="#planifica">Obtener entrada</a>
           </nav>
         </details>
