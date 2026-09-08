@@ -1,51 +1,15 @@
-import Image from "next/image";
 import { Footer } from "./layout/footer";
 import { Navbar } from "./layout/navbar";
 import { VisitPlanner } from "./components/visit-planner";
 import { ManifestoCarousel } from "./components/manifesto-carousel";
+import { FaqAndSponsors } from "./components/faq-sponsors";
 
 const heroImage = "/media/hero-expojuy.webp";
-const industryImage = "/media/industria.webp";
-const technologyImage = "/media/tecnologia.webp";
-const cultureImage = "/media/cultura.webp";
-const communityImage = "/media/comunidad.webp";
-const foodImage = "/media/gastronomia.webp";
 
-type IconName =
-  | "calendar"
-  | "building"
-  | "map"
-  | "route"
-  | "arrow"
-  | "bookmark";
+type IconName = "arrow" | "bookmark";
 
 function Icon({ name }: { name: IconName }) {
   const paths: Record<IconName, React.ReactNode> = {
-    calendar: (
-      <>
-        <path d="M7 3v3M17 3v3M4 9h16" />
-        <rect x="4" y="5" width="16" height="16" rx="3" />
-        <path d="M8 13h3M8 17h6" />
-      </>
-    ),
-    building: (
-      <>
-        <path d="M4 21V7l8-4 8 4v14M8 10h2M14 10h2M8 14h2M14 14h2M10 21v-3h4v3" />
-      </>
-    ),
-    map: (
-      <>
-        <path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3Z" />
-        <path d="M9 3v15M15 6v15" />
-      </>
-    ),
-    route: (
-      <>
-        <circle cx="6" cy="18" r="2" />
-        <circle cx="18" cy="6" r="2" />
-        <path d="M8 18h3a3 3 0 0 0 3-3v-6a3 3 0 0 1 3-3" />
-      </>
-    ),
     arrow: (
       <>
         <path d="M5 12h14M14 7l5 5-5 5" />
@@ -67,43 +31,6 @@ function Icon({ name }: { name: IconName }) {
     </svg>
   );
 }
-
-const quickLinks: Array<{
-  icon: IconName;
-  eyebrow: string;
-  title: string;
-  text: string;
-  href: string;
-}> = [
-  {
-    icon: "calendar",
-    eyebrow: "01 / Ahora",
-    title: "Agenda",
-    text: "Charlas, experiencias y encuentros para aprovechar cada jornada.",
-    href: "#agenda",
-  },
-  {
-    icon: "building",
-    eyebrow: "02 / Conectá",
-    title: "Expositores",
-    text: "Descubrí empresas, emprendimientos e instituciones de toda la provincia.",
-    href: "#sectores",
-  },
-  {
-    icon: "map",
-    eyebrow: "03 / Ubicate",
-    title: "Mapa",
-    text: "Encontrá stands, escenarios, servicios y los mejores recorridos.",
-    href: "#mapa",
-  },
-  {
-    icon: "route",
-    eyebrow: "04 / A tu manera",
-    title: "Planificá tu visita",
-    text: "Armá una experiencia a partir de tus intereses y tu tiempo disponible.",
-    href: "#planifica",
-  },
-];
 
 const sectors = [
   { number: "01", title: "Producción", color: "lime" },
@@ -139,30 +66,6 @@ const agenda = [
     color: "coral",
   },
 ];
-
-function PhotoCard({
-  image,
-  alt,
-  label,
-  className = "",
-}: {
-  image: string;
-  alt: string;
-  label: string;
-  className?: string;
-}) {
-  return (
-    <figure className={`photo-card ${className}`}>
-      <Image
-        src={image}
-        alt={alt}
-        fill
-        sizes="(max-width: 760px) 100vw, 50vw"
-      />
-      <figcaption>{label}</figcaption>
-    </figure>
-  );
-}
 
 export default function Home() {
   return (
@@ -208,10 +111,6 @@ export default function Home() {
             <i aria-hidden="true" />
           </a>
         </section>
-
-        <section className="quick-section" id="descubri"><div className="shell"><div className="section-intro compact"><p className="eyebrow dark"><span /> Tu visita empieza acá</p><h2>¿Qué querés<br/><em>descubrir?</em></h2></div><div className="quick-grid">
-          {quickLinks.map((item) => <a className="quick-card" href={item.href} key={item.title}><div className="quick-top"><span>{item.eyebrow}</span><Icon name={item.icon} /></div><div><h3>{item.title}</h3><p>{item.text}</p></div><span className="circle-arrow"><Icon name="arrow" /></span></a>)}
-        </div></div></section>
 
         <ManifestoCarousel />
 
@@ -340,6 +239,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <FaqAndSponsors />
       </main>
       <Footer />
     </>

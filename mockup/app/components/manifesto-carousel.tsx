@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const slides = [
   {
@@ -28,12 +28,19 @@ const slides = [
 
 export function ManifestoCarousel() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const previousSlide = (activeSlide - 1 + slides.length) % slides.length;
   const nextSlide = (activeSlide + 1) % slides.length;
 
-  const move = (direction: number) => {
-    setActiveSlide((current) => (current + direction + slides.length) % slides.length);
-  };
+  useEffect(() => {
+    if (isPaused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const interval = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % slides.length);
+    }, 5200);
+
+    return () => window.clearInterval(interval);
+  }, [isPaused]);
 
   return (
     <section className="manifesto" aria-labelledby="manifesto-title">
@@ -52,7 +59,7 @@ export function ManifestoCarousel() {
         </div>
 
         <div className="manifesto-carousel" role="region" aria-roledescription="carrusel" aria-label="Momentos de ExpoJuy">
-          <div className="manifesto-slides" aria-live="polite">
+          <div className="manifesto-slides" aria-live={isPaused ? "polite" : "off"}>
             {slides.map((slide, index) => {
               const position = index === activeSlide ? "active" : index === previousSlide ? "previous" : index === nextSlide ? "next" : "hidden";
               return (
@@ -64,7 +71,7 @@ export function ManifestoCarousel() {
             })}
           </div>
           <div className="carousel-controls">
-            <p><strong>0{activeSlide + 1}</strong> / 0{slides.length}</p>
+            
             <div className="carousel-dots" aria-label="Elegir fotografía">
               {slides.map((slide, index) => (
                 <button
@@ -72,15 +79,15 @@ export function ManifestoCarousel() {
                   aria-label={`Ver ${slide.label}`}
                   aria-pressed={index === activeSlide}
                   className={index === activeSlide ? "active" : ""}
-                  onClick={() => setActiveSlide(index)}
+                  onClick={() => {
+                    setActiveSlide(index);
+                    setIsPaused(true);
+                  }}
                   key={slide.image}
                 />
               ))}
             </div>
-            <div className="carousel-arrows">
-              <button type="button" aria-label="Fotografía anterior" onClick={() => move(-1)}>←</button>
-              <button type="button" aria-label="Fotografía siguiente" onClick={() => move(1)}>→</button>
-            </div>
+            
           </div>
         </div>
       </div>
