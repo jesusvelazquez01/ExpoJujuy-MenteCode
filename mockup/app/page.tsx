@@ -84,23 +84,29 @@ export default function Home() {
           <div className="hero-orbit hero-orbit-two" aria-hidden="true" />
           <div className="shell hero-layout">
             <div className="hero-copy">
-              <p className="eyebrow"><span /> ExpoJuy · Edición 2026</p>
               <h1 aria-label="Jujuy produce. Innova. Se conecta.">
                 <span className="hero-title-line">Jujuy produce.</span>
-                <span className="hero-title-line hero-title-accent"><em>Innova.</em><span> Se conecta.</span></span>
+                <span className="hero-title-line hero-title-accent">
+                  <em>Innova.</em><span> Se conecta.</span>
+                </span>
               </h1>
-              <p className="hero-lead">Toda la diversidad productiva, empresarial y cultural de Jujuy en un solo recorrido digital.</p>
+              <p className="hero-lead">
+                Toda la diversidad productiva, empresarial y cultural de Jujuy
+                en un solo recorrido digital.
+              </p>
               <div className="hero-bottom">
-                <div className="hero-actions"><Link className="button button-primary" href="/entrada">Explorar la experiencia <Icon name="arrow" /></Link><a className="button button-ghost" href="#sectores">Quiero exponer</a></div>
-                <div className="hero-meta"><div><span>Cuándo</span><strong>Fecha a confirmar</strong></div><div><span>Dónde</span><strong>Jujuy · Sede a confirmar</strong></div></div>
+                <div className="hero-actions">
+                  <Link className="button button-primary" href="/entrada">
+                    Explorar la experiencia <Icon name="arrow" />
+                  </Link>
+                  <a className="button button-ghost" href="#sectores">
+                    Quiero exponer
+                  </a>
+                </div>
               </div>
             </div>
             <aside className="hero-edition" aria-label="Propuesta conceptual ExpoJuy 2026"><span>EXPERIENCIA</span><strong>2026</strong><small>Propuesta conceptual</small></aside>
           </div>
-          <a className="scroll-cue" href="#descubri">
-            <span>Descubrí</span>
-            <i aria-hidden="true" />
-          </a>
         </section>
 
         <ManifestoCarousel />

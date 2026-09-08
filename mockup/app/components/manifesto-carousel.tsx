@@ -58,7 +58,18 @@ export function ManifestoCarousel() {
           <small className="demo-note">Cifras de carácter conceptual para esta instancia de mockup.</small>
         </div>
 
-        <div className="manifesto-carousel" role="region" aria-roledescription="carrusel" aria-label="Momentos de ExpoJuy">
+        <div
+          className="manifesto-carousel"
+          role="region"
+          aria-roledescription="carrusel"
+          aria-label="Momentos de ExpoJuy"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onFocus={() => setIsPaused(true)}
+          onBlur={(event) => {
+            if (!event.currentTarget.contains(event.relatedTarget)) setIsPaused(false);
+          }}
+        >
           <div className="manifesto-slides" aria-live={isPaused ? "polite" : "off"}>
             {slides.map((slide, index) => {
               const position = index === activeSlide ? "active" : index === previousSlide ? "previous" : index === nextSlide ? "next" : "hidden";
@@ -79,10 +90,7 @@ export function ManifestoCarousel() {
                   aria-label={`Ver ${slide.label}`}
                   aria-pressed={index === activeSlide}
                   className={index === activeSlide ? "active" : ""}
-                  onClick={() => {
-                    setActiveSlide(index);
-                    setIsPaused(true);
-                  }}
+                  onClick={() => setActiveSlide(index)}
                   key={slide.image}
                 />
               ))}
