@@ -1,8 +1,10 @@
+import Link from "next/link";
 import { Footer } from "./layout/footer";
 import { Navbar } from "./layout/navbar";
-import { VisitPlanner } from "./components/visit-planner";
 import { ManifestoCarousel } from "./components/manifesto-carousel";
 import { FaqAndSponsors } from "./components/faq-sponsors";
+import { ExhibitorCard } from "./components/exhibitor-card";
+import { exhibitors } from "./data/exhibitors";
 
 const heroImage = "/media/hero-expojuy.webp";
 
@@ -31,17 +33,6 @@ function Icon({ name }: { name: IconName }) {
     </svg>
   );
 }
-
-const sectors = [
-  { number: "01", title: "Producción", color: "lime" },
-  { number: "02", title: "Industria", color: "blue" },
-  { number: "03", title: "Minería y energía", color: "coral" },
-  { number: "04", title: "Tecnología", color: "violet" },
-  { number: "05", title: "Turismo", color: "sky" },
-  { number: "06", title: "Emprendimientos", color: "amber" },
-  { number: "07", title: "Comercio", color: "rose" },
-  { number: "08", title: "Economía del conocimiento", color: "mint" },
-];
 
 const agenda = [
   {
@@ -100,7 +91,7 @@ export default function Home() {
               </h1>
               <p className="hero-lead">Toda la diversidad productiva, empresarial y cultural de Jujuy en un solo recorrido digital.</p>
               <div className="hero-bottom">
-                <div className="hero-actions"><a className="button button-primary" href="#planifica">Explorar la experiencia <Icon name="arrow" /></a><a className="button button-ghost" href="#sectores">Quiero exponer</a></div>
+                <div className="hero-actions"><Link className="button button-primary" href="/entrada">Explorar la experiencia <Icon name="arrow" /></Link><a className="button button-ghost" href="#sectores">Quiero exponer</a></div>
                 <div className="hero-meta"><div><span>Cuándo</span><strong>Fecha a confirmar</strong></div><div><span>Dónde</span><strong>Jujuy · Sede a confirmar</strong></div></div>
               </div>
             </div>
@@ -119,10 +110,10 @@ export default function Home() {
             <div className="section-heading-row">
               <div className="section-intro">
                 <p className="eyebrow dark">
-                  <span /> El motor de la provincia
+                  <span /> Expositores
                 </p>
                 <h2>
-                  Todos los sectores.
+                  Seis espacios.
                   <br />
                   <em>Un mismo impulso.</em>
                 </h2>
@@ -132,20 +123,15 @@ export default function Home() {
                 personas que están construyendo su futuro.
               </p>
             </div>
-            <div className="sectors-grid">
-              {sectors.map((sector) => (
-                <a
-                  className={`sector-card ${sector.color}`}
-                  href="#agenda"
-                  key={sector.title}
-                >
-                  <span>{sector.number}</span>
-                  <h3>{sector.title}</h3>
-                  <i>
-                    <Icon name="arrow" />
-                  </i>
-                </a>
+            <div className="exhibitors-grid">
+              {exhibitors.map((exhibitor) => (
+                <ExhibitorCard exhibitor={exhibitor} key={exhibitor.slug} />
               ))}
+            </div>
+            <div className="exhibitors-footer">
+              <Link className="button exhibitors-button" href="/expositores">
+                Ver todos los expositores <Icon name="arrow" />
+              </Link>
             </div>
           </div>
         </section>
@@ -170,7 +156,7 @@ export default function Home() {
                 <button>Día 02</button>
                 <button>Día 03</button>
               </div>
-              <a className="text-link" href="#agenda">
+              <a className="button button-ghost mt-10" href="#agenda">
                 Ver agenda completa <Icon name="arrow" />
               </a>
             </div>
@@ -199,8 +185,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        <VisitPlanner />
 
         <section className="map-section" id="mapa">
           <div className="shell map-card">

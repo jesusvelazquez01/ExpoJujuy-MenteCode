@@ -1,10 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export function Navbar() {
   return (
     <header className="site-header">
       <div className="shell navbar">
-        <a className="brand" href="#inicio" aria-label="ExpoJuy 2026, inicio">
+        <Link className="brand" href="/" aria-label="ExpoJuy 2026, inicio">
           <Image
             className="brand-logo"
             src="/media/expojuy26-logo.jpg"
@@ -13,33 +14,33 @@ export function Navbar() {
             priority
             sizes="208px"
           />
-        </a>
+        </Link>
         <nav className="desktop-nav" aria-label="Navegación principal">
-          <a href="#provincia">La Expo</a>
-          <a href="#sectores">Expositores</a>
-          <a href="#agenda">Agenda</a>
-          <a href="#noticias">Noticias</a>
-          <a href="#contacto">Contacto</a>
-          <a href="#dudas">Dudas</a>
-          <a href="#revista">Agenda</a>
+          <Link href="/#provincia">La Expo</Link>
+          <Link href="/#sectores">Expositores</Link>
+          <Link href="/#agenda">Agenda Interactiva</Link>
+          <Link href="/#noticias">Noticias</Link>
+          <Link href="/#contacto">Contacto</Link>
+          <Link href="/#dudas">Dudas</Link>
+          <Link href="/#revista">Revista Interactiva</Link>
         </nav>
-        <a className="nav-cta" href="#planifica">
+        <Link className="nav-cta" href="/entrada">
           Obtener entrada <span>↗</span>
-        </a>
+        </Link>
         <details className="mobile-menu">
           <summary aria-label="Abrir menú">
             <span />
             <span />
           </summary>
           <nav aria-label="Navegación móvil">
-            <a href="#provincia">La Expo</a>
-            <a href="#sectores">Expositores</a>
-            <a href="#agenda">Agenda Interactiva</a>
-            <a href="#noticias">Noticias</a>
-            <a href="#contacto">Contacto</a>
-            <a href="#dudas">Dudas</a>
-            <a href="#revista">Revista Interactiva</a>
-            <a href="#planifica">Obtener entrada</a>
+            <Link href="/#provincia">La Expo</Link>
+            <Link href="/#sectores">Expositores</Link>
+            <Link href="/#agenda">Agenda Interactiva</Link>
+            <Link href="/#noticias">Noticias</Link>
+            <Link href="/#contacto">Contacto</Link>
+            <Link href="/#dudas">Dudas</Link>
+            <Link href="/#revista">Revista Interactiva</Link>
+            <Link href="/entrada">Obtener entrada</Link>
           </nav>
         </details>
       </div>
