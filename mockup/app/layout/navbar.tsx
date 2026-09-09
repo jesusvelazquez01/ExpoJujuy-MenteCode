@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SocialLinks } from "../components/social-links";
+import { assetPath } from "../lib/asset-path";
 
 export function Navbar() {
   return (
@@ -9,7 +10,7 @@ export function Navbar() {
         <Link className="brand" href="/" aria-label="ExpoJuy 2026, inicio">
           <Image
             className="brand-logo"
-            src="/media/expojuy26-logo.jpg"
+            src={assetPath("/media/expojuy26-logo.jpg")}
             alt="ExpoJuy: conectando países, creando oportunidades"
             fill
             priority
@@ -20,7 +21,7 @@ export function Navbar() {
           <Link href="/#provincia">La Expo</Link>
           <Link href="/#sectores">Expositores</Link>
           <Link href="/#agenda">Agenda Interactiva</Link>
-          <Link href="/#noticias">Noticias</Link>
+          <Link href="/noticias">Noticias</Link>
           <Link href="/contacto">Contacto</Link>
           <Link href="/#dudas">Dudas</Link>
         </nav>
@@ -39,7 +40,7 @@ export function Navbar() {
             <Link href="/#provincia">La Expo</Link>
             <Link href="/#sectores">Expositores</Link>
             <Link href="/#agenda">Agenda Interactiva</Link>
-            <Link href="/#noticias">Noticias</Link>
+            <Link href="/noticias">Noticias</Link>
             <Link href="/contacto">Contacto</Link>
             <Link href="/#dudas">Dudas</Link>
             <Link href="/entrada">Obtener entrada</Link>

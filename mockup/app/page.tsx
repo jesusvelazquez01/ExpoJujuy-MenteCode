@@ -5,8 +5,9 @@ import { ManifestoCarousel } from "./components/manifesto-carousel";
 import { FaqAndSponsors } from "./components/faq-sponsors";
 import { ExhibitorCard } from "./components/exhibitor-card";
 import { exhibitors } from "./data/exhibitors";
+import { assetPath } from "./lib/asset-path";
 
-const heroImage = "/media/hero-expojuy.webp";
+const heroImage = assetPath("/media/hero-expojuy.webp");
 
 type IconName = "arrow" | "bookmark";
 
@@ -75,7 +76,7 @@ export default function Home() {
               poster={heroImage}
               tabIndex={-1}
             >
-              <source src="/media/expojuy-hero.mp4" type="video/mp4" media="(prefers-reduced-motion: no-preference)" />
+              <source src={assetPath("/media/expojuy-hero.mp4")} type="video/mp4" media="(prefers-reduced-motion: no-preference)" />
             </video>
             <div className="hero-video-overlay" />
           </div>
