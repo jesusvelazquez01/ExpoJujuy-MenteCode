@@ -17,7 +17,6 @@ export default function ExhibitorsPage() {
       <main className="exhibitors-page">
         <header className="exhibitors-page-hero">
           <div className="shell">
-            <p className="eyebrow"><span /> ExpoJuy 2026</p>
             <h1>Encontrá tu próximo<br /><em>punto de conexión.</em></h1>
             <p>
               Una primera vista de los espacios que integrarán la experiencia.
@@ -29,7 +28,6 @@ export default function ExhibitorsPage() {
           <div className="shell">
             <div className="directory-heading">
               <div>
-                <p className="eyebrow dark"><span /> Directorio conceptual</p>
                 <h2 id="directory-title">Todos los expositores</h2>
               </div>
               <Link className="text-link" href="/#sectores">Volver al inicio</Link>

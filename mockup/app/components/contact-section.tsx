@@ -5,7 +5,6 @@ export function ContactSection() {
     <section className="contact-section" id="contacto" aria-labelledby="contact-title">
       <div className="shell contact-layout">
         <div className="contact-copy">
-          <p className="eyebrow"><span /> Contacto</p>
           <h2 id="contact-title">Hablemos.<br /><em>Estamos para ayudarte.</em></h2>
           <p>
             Escribile a la organización para realizar consultas generales,

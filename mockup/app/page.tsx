@@ -116,9 +116,6 @@ export default function Home() {
           <div className="shell">
             <div className="section-heading-row">
               <div className="section-intro">
-                <p className="eyebrow dark">
-                  <span /> Expositores
-                </p>
                 <h2>
                   Seis espacios.
                   <br />
@@ -146,9 +143,6 @@ export default function Home() {
         <section className="agenda-section" id="agenda">
           <div className="shell agenda-layout">
             <div className="agenda-aside">
-              <p className="eyebrow">
-                <span /> Agenda destacada
-              </p>
               <h2>
                 Ideas para
                 <br />
@@ -196,9 +190,6 @@ export default function Home() {
         <section className="map-section" id="mapa">
           <div className="shell map-card">
             <div className="map-copy">
-              <p className="eyebrow dark">
-                <span /> Mapa del predio
-              </p>
               <h2>
                 Encontrá tu próximo
                 <br />

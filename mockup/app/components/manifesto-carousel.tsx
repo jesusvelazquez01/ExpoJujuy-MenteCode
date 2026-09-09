@@ -47,7 +47,6 @@ export function ManifestoCarousel() {
     <section className="manifesto" id="provincia" aria-labelledby="manifesto-title">
       <div className="shell manifesto-layout">
         <div className="manifesto-copy">
-          <p className="manifesto-kicker">UNA PROVINCIA<br />QUE HACE</p>
           <h2 className="manifesto-text" id="manifesto-title">
             ExpoJuy es el punto de encuentro entre quienes producen, quienes imaginan y quienes hacen crecer el Norte Argentino.
           </h2>

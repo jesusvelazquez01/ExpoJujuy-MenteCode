@@ -59,7 +59,6 @@ export function FaqAndSponsors() {
       <section className="faq-section" id="dudas" aria-labelledby="faq-title">
         <div className="shell faq-layout">
           <div className="faq-heading">
-            <p className="eyebrow dark"><span /> Información útil</p>
             <h2 id="faq-title">Preguntas<br /><em>frecuentes.</em></h2>
             <p>Respuestas para orientar la experiencia. La información oficial se incorporará a medida que sea confirmada.</p>
           </div>
@@ -80,7 +79,6 @@ export function FaqAndSponsors() {
 
       <section className="sponsors-section" aria-labelledby="sponsors-title">
         <div className="shell sponsors-heading">
-          <p className="eyebrow"><span /> Juntos hacemos ExpoJuy</p>
           <h2 id="sponsors-title">Organizaciones que <em>acompañan.</em></h2>
           <small>Identidades provistas para esta instancia de mockup.</small>
         </div>

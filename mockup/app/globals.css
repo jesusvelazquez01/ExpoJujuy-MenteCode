@@ -141,9 +141,10 @@ svg {
   justify-content: space-between;
   min-width: 170px;
   padding: 12px 15px 12px 18px;
+  border: 1px solid var(--violet);
   border-radius: 99px;
   color: white;
-  background: linear-gradient(105deg, var(--violet), #8e45e8 56%, var(--blue));
+  background: var(--violet);
   box-shadow: 0 8px 22px rgba(123, 45, 226, 0.2);
   font-size: 0.8rem;
   font-weight: 800;
@@ -153,6 +154,8 @@ svg {
 }
 .nav-cta:hover,
 .nav-cta:focus-visible {
+  border-color: var(--blue);
+  background: var(--ink);
   transform: translateY(-2px);
   box-shadow: 0 11px 28px rgba(123, 45, 226, 0.28);
 }
@@ -306,25 +309,6 @@ svg {
   margin-inline: auto;
   text-align: center;
 }
-.eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 0 0 24px;
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 0.69rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-.eyebrow > span {
-  width: 28px;
-  height: 2px;
-  background: var(--lime);
-}
-.eyebrow.dark {
-  color: var(--gray-violet);
-}
 .hero h1,
 .section-intro h2,
 .agenda-aside h2,
@@ -344,9 +328,6 @@ svg {
   font-weight: var(--font-weight-light);
   white-space: nowrap;
   text-shadow: 0 4px 28px rgba(37, 26, 46, 0.3);
-}
-.hero-copy > .eyebrow {
-  justify-content: center;
 }
 .hero-title-line {
   display: inline;
@@ -625,14 +606,6 @@ h2 em {
 .manifesto-copy {
   position: relative;
   z-index: 4;
-}
-.manifesto-kicker {
-  margin: 0 0 28px;
-  color: var(--violet);
-  font-size: 0.7rem;
-  font-weight: 900;
-  letter-spacing: 0.16em;
-  line-height: 1.6;
 }
 .manifesto-text {
   max-width: 700px;
@@ -995,9 +968,6 @@ h2 em {
   align-items: end;
   gap: clamp(55px, 9vw, 145px);
 }
-.news-hero .eyebrow {
-  margin-bottom: 34px;
-}
 .news-hero h1 {
   margin: 0;
   font-family: var(--font-display);
@@ -1316,8 +1286,8 @@ h2 em {
 .planner-copy h2 {
   font-size: clamp(3rem, 4.5vw, 5.15rem);
 }
-.agenda-aside > p:not(.eyebrow),
-.planner-copy > p:not(.eyebrow) {
+.agenda-aside > p,
+.planner-copy > p {
   max-width: 440px;
   margin: 28px 0;
   color: var(--paper);
@@ -1617,7 +1587,7 @@ h2 em {
 .map-copy h2 {
   font-size: clamp(2.8rem, 4vw, 4.4rem);
 }
-.map-copy > p:not(.eyebrow) {
+.map-copy > p {
   margin: 28px 0;
   color: var(--muted);
   font-size: 0.88rem;
@@ -1780,7 +1750,7 @@ h2 em {
 .contact-copy h2 em {
   color: var(--blue);
 }
-.contact-copy > p:not(.eyebrow) {
+.contact-copy > p {
   max-width: 470px;
   margin: 30px 0 24px;
   color: rgba(255, 255, 255, 0.7);
@@ -1907,7 +1877,7 @@ h2 em {
   color: var(--violet);
   font-style: normal;
 }
-.faq-heading > p:not(.eyebrow) {
+.faq-heading > p {
   max-width: 390px;
   margin: 30px 0 0;
   color: var(--muted);
@@ -1991,13 +1961,10 @@ h2 em {
 }
 .sponsors-heading {
   display: grid;
-  grid-template-columns: 0.55fr 1.05fr auto;
+  grid-template-columns: 1fr auto;
   align-items: end;
   gap: 45px;
   margin-bottom: 55px;
-}
-.sponsors-heading .eyebrow {
-  margin: 0 0 8px;
 }
 .sponsors-heading h2 {
   max-width: 680px;
@@ -2284,11 +2251,11 @@ h2 em {
   .faq-heading {
     position: static;
   }
-  .faq-heading > p:not(.eyebrow) {
+  .faq-heading > p {
     max-width: 560px;
   }
   .sponsors-heading {
-    grid-template-columns: 1fr 1.4fr;
+    grid-template-columns: 1fr auto;
   }
   .sponsors-heading small {
     display: none;
@@ -2557,9 +2524,6 @@ h2 em {
   .sponsors-heading {
     display: block;
     margin-bottom: 40px;
-  }
-  .sponsors-heading .eyebrow {
-    margin-bottom: 20px;
   }
   .sponsors-heading h2 {
     font-size: clamp(2.55rem, 12vw, 3.8rem);
