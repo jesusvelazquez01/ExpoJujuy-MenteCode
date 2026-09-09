@@ -2,25 +2,26 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { assetPath } from "../lib/asset-path";
 
 const slides = [
   {
-    image: "/media/tecnologia.webp",
+    image: assetPath("/media/tecnologia.webp"),
     alt: "Estudiantes participan de una experiencia tecnológica en ExpoJuy",
     label: "Tecnología & educación",
   },
   {
-    image: "/media/industria.webp",
+    image: assetPath("/media/industria.webp"),
     alt: "Vehículos y producción industrial presentes en ExpoJuy",
     label: "Producción en movimiento",
   },
   {
-    image: "/media/comunidad.webp",
+    image: assetPath("/media/comunidad.webp"),
     alt: "Representantes institucionales recorren ExpoJuy",
     label: "Comunidad productiva",
   },
   {
-    image: "/media/cultura.webp",
+    image: assetPath("/media/cultura.webp"),
     alt: "Presentación cultural sobre el escenario de ExpoJuy",
     label: "Cultura que conecta",
   },

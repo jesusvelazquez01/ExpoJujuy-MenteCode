@@ -1,6 +1,6 @@
 # Handoff - Mockup web ExpoJuy 2026
 
-Última actualización: 6 de septiembre de 2026.
+Última actualización: 8 de septiembre de 2026.
 
 ## Objetivo
 
@@ -91,34 +91,46 @@ Stack instalado:
 
 La portada fue reemplazada por una primera propuesta visual completa. Actualmente incluye:
 
-- Hero editorial con imagen auténtica de una edición anterior.
+- Hero audiovisual a pantalla completa con video auténtico de ExpoJuy, poster de respaldo, capa de contraste y transición inferior difuminada.
+- Título, bajada y llamadas a la acción centrados; título controlado en dos líneas en escritorio y tres líneas en móvil.
 - Navegación fija en escritorio.
 - Menú desplegable móvil.
-- Accesos rápidos a agenda, expositores, mapa y planificación.
-- Manifiesto y métricas conceptuales.
+- Manifiesto y métricas conceptuales acompañados por un carrusel fotográfico automático de cuatro escenas, sin flechas y con pausa durante hover/foco.
 - Ocho sectores productivos.
-- Bloque destacado de industria y producción.
 - Agenda demostrativa.
-- Galería editorial.
 - Flujo interactivo inicial de `Planificá tu visita`.
 - Mapa conceptual del predio.
+- Cinco preguntas frecuentes en acordeón, con información conceptual y datos oficiales señalados como pendientes.
+- Carrusel lateral automático con nueve sponsors únicos tomados de `fotos/sponsor/`.
 - Footer institucional.
+- Página editorial de Noticias con portada, nota destacada, cinco novedades y
+  llamada informativa; todo el contenido se identifica como demostrativo.
+- Páginas independientes para Expositores y Obtener entrada.
 
 ## Sistema visual implementado
 
-Paleta inicial dentro de `app/globals.css`:
+Paleta vigente dentro de `app/globals.css`, tomada de `paleta-colores/RGB-COLORES.txt`:
 
-- Azul nocturno: `#06162d`.
-- Azul institucional oscuro: `#07182f`.
-- Celeste: `#2ab6f6`.
-- Verde lima: `#c7ef43`.
-- Coral: `#ff6b4b`.
-- Violeta: `#9b78ff`.
-- Fondo claro: `#f4f2ea`.
+- Gris principal: `#4c4c4c`.
+- Celeste: `#27c3d3`.
+- Lila: `#bb8cfb`.
+- Violeta: `#7b2de2`.
+- Fondo claro: `#dfdde2`.
+- Grises auxiliares: `#909090`, `#74697b` y `#676768`.
 
-La identidad visual de la cabecera es **provisional**. El repositorio todavía no contiene el logotipo oficial de ExpoJuy 2026. Cuando esté disponible el kit oficial, reemplazar el placeholder sin rediseñar ni alterar el logo.
+La cabecera utiliza `mockup/public/media/expojuy26-logo.jpg`, extraído del material incorporado por el usuario. Confirmar su condición oficial y derechos de uso antes de la entrega definitiva; no redibujar ni alterar el logo.
 
 No se usan fuentes remotas. Se retiró `next/font/google` para evitar que el build dependa de descargar Geist desde Google.
+
+La familia Ambit/Ambi-Light está declarada globalmente para todo el documento y
+para los controles nativos (`button`, `input`, `textarea`, `select` y `option`).
+La jerarquía fue armonizada con peso Light (`300`) para todos los encabezados,
+peso regular (`400`) para lectura y peso de énfasis (`700` o superior) reservado
+para etiquetas, métricas, preguntas, botones y datos clave.
+El repositorio todavía no contiene archivos tipográficos: para garantizar una
+representación idéntica en todos los equipos será necesario incorporar la fuente
+web licenciada en formato WOFF2; mientras tanto se utilizan alternativas locales
+de sistema cuando Ambit no está instalada.
 
 ## Recursos disponibles
 
@@ -143,25 +155,33 @@ Las imágenes seleccionadas para la portada fueron copiadas con nombres semánti
 
 ### Video
 
-Existe un video de aproximadamente 46 MB:
+El video fuente de aproximadamente 46 MB se encuentra en:
 
 `video/video-DvvGNoCh.mp4`
 
-Todavía no se incorporó a la interfaz. Evaluar compresión, poster, carga diferida y `prefers-reduced-motion` antes de usarlo. No cargarlo automáticamente en móvil sin optimización.
+Fue copiado para servirlo desde:
+
+`mockup/public/media/expojuy-hero.mp4`
+
+Está incorporado como fondo del hero con reproducción automática, silenciosa, en bucle y `playsInline`; usa `hero-expojuy.webp` como poster. La fuente se condiciona a `prefers-reduced-motion: no-preference` y el poster queda como alternativa. El peso de 46 MB sigue siendo alto: comprimir y generar variantes livianas antes del despliegue definitivo.
+
+Para la versión final se recomienda producir una variante del video sin títulos ni palabras incrustadas. Un fondo audiovisual limpio permitirá conservar la composición centrada del hero, mejorar la jerarquía del mensaje “Jujuy produce. Innova. Se conecta.” y evitar cruces visuales variables a medida que avanza la reproducción. El mockup actual conserva el material disponible y documenta esta limitación como una decisión de producción pendiente.
 
 ### Paleta agregada por el usuario
 
-Existe una carpeta sin versionar:
+Existe la carpeta:
 
 `paleta-colores/`
 
-No fue creada ni modificada durante el trabajo anterior. Inspeccionarla antes de seguir y preservar su contenido. Puede contener información nueva del usuario que deba sustituir la paleta provisional.
+Contiene la imagen horizontal de identidad y `RGB-COLORES.txt`. Su paleta ya fue aplicada al mockup. Preservar el material fuente.
 
 ## Archivos principales
 
 - `mockup/app/page.tsx`: portada y datos demostrativos.
 - `mockup/app/globals.css`: sistema visual, layout y breakpoints.
-- `mockup/app/components/visit-planner.tsx`: único bloque cliente interactivo por ahora.
+- `mockup/app/components/visit-planner.tsx`: bloque cliente interactivo del planificador.
+- `mockup/app/components/manifesto-carousel.tsx`: carrusel automático accesible del manifiesto, aislado como Client Component.
+- `mockup/app/components/faq-sponsors.tsx`: preguntas frecuentes y franja automática de sponsors.
 - `mockup/app/layout/navbar.tsx`: navegación desktop y móvil.
 - `mockup/app/layout/footer.tsx`: footer.
 - `mockup/app/layout.tsx`: metadata, idioma `es-AR` y layout raíz.
@@ -189,34 +209,44 @@ npm run build
 
 Ambos comandos finalizan correctamente.
 
-El build genera las rutas `/` y `/_not-found` como contenido estático.
+El build genera `/`, `/entrada`, `/expositores`, `/noticias` y `/_not-found`
+como contenido estático.
 
 También se verificó en navegador integrado:
 
 - Render de escritorio.
 - Render móvil a 390 x 844 px.
+- Reproducción real del video del hero: MP4 1920 x 1080, silenciado y sin errores.
+- Título completo y legible en escritorio y móvil, sin cortes.
+- Rotación automática del carrusel del manifiesto, sin controles de flechas.
+- Acordeón de preguntas frecuentes y franja continua de nueve sponsors.
 - Sin desbordamiento horizontal en móvil.
 - Apertura y cierre del menú móvil.
 - Selección de intereses en el planificador.
 - Estado `aria-pressed` correcto.
 - Consola del navegador sin errores.
+- Página de Noticias verificada en navegador, con seis imágenes cargadas, cinco
+  tarjetas secundarias y sin desbordamiento horizontal.
+- Exportación probada tanto en la raíz como bajo `/ExpoJujuy-MenteCode`; los
+  enlaces, recursos de Next.js, fotografías, logos y video incluyen el prefijo
+  correcto en el build para GitHub Pages.
 
 ## Estado de GitHub Pages
 
-El proyecto todavía **no está configurado completamente para desplegar en GitHub Pages**.
+El proyecto está configurado para exportación estática y despliegue mediante
+GitHub Actions:
 
-Pendiente en `next.config.ts`:
+- `mockup/next.config.ts` activa `output: "export"`, `trailingSlash`, imágenes
+  sin optimización de servidor y un `basePath` definido durante el build.
+- `mockup/app/lib/asset-path.ts` antepone ese mismo `basePath` a imágenes y video.
+- `.github/workflows/deploy-pages.yml` instala, compila, sube `mockup/out` y lo
+  publica mediante las acciones oficiales de GitHub Pages.
+- `mockup/README.md` incluye instrucciones de desarrollo, validación y despliegue.
 
-- `output: "export"`.
-- `trailingSlash: true` si se mantiene navegación multipágina.
-- `basePath` para `/ExpoJujuy-MenteCode` durante producción.
-- Resolver rutas de imágenes públicas con el `basePath`.
-
-Pendiente:
-
-- Workflow en `.github/workflows/`.
-- Publicación del contenido de `mockup/out` mediante GitHub Actions.
-- Prueba directa bajo el subpath del repositorio.
+Antes del primer despliegue debe seleccionarse **GitHub Actions** como fuente en
+Settings → Pages. La publicación real y la prueba de la URL pública quedan
+pendientes hasta que el equipo haga commit y push; no fueron ejecutadas desde
+esta tarea.
 
 Git remote detectado:
 
@@ -228,8 +258,8 @@ No desplegar ni hacer push sin que el usuario lo solicite explícitamente.
 
 Orden sugerido por el poco tiempo disponible:
 
-1. Inspeccionar `paleta-colores/` y localizar el kit/logotipo oficial 2026.
-2. Validar la portada actual con el usuario y hacer una ronda corta de ajustes.
+1. Validar con el usuario el nuevo hero audiovisual y hacer una ronda corta de ajustes.
+2. Comprimir el video del hero y confirmar licencia/origen del logo y las piezas visuales.
 3. Crear listado de expositores con buscador y filtros funcionales.
 4. Crear perfil individual de expositor.
 5. Convertir la agenda en una pantalla funcional con días y filtros.
@@ -237,8 +267,8 @@ Orden sugerido por el poco tiempo disponible:
 7. Ampliar `Planificá tu visita` a los cuatro pasos.
 8. Crear mapa interactivo simulado.
 9. Crear flujo de entrada/acreditación, sin pagos ni datos reales.
-10. Agregar noticias, sponsors, FAQ y contacto.
-11. Configurar exportación estática y GitHub Pages.
+10. Completar contacto y validar el contenido definitivo de Noticias.
+11. Probar la URL pública generada por GitHub Pages.
 12. Preparar memoria descriptiva y declaración de uso de IA.
 
 Si el tiempo se vuelve crítico, priorizar:

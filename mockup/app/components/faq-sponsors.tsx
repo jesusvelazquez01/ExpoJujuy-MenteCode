@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { assetPath } from "../lib/asset-path";
 
 const questions = [
   {
@@ -24,15 +25,15 @@ const questions = [
 ];
 
 const sponsors = [
-  { image: "/media/sponsors/kelimpio.jpeg", name: "Kelimpio" },
-  { image: "/media/sponsors/cannava.jpeg", name: "Cannava Sociedad del Estado" },
-  { image: "/media/sponsors/seguros-jujuy.jpeg", name: "Compañía de Seguros de Jujuy" },
-  { image: "/media/sponsors/exar.jpeg", name: "EXAR" },
-  { image: "/media/sponsors/turismo-ambiente-deportes.jpeg", name: "Secretaría de Turismo, Ambiente y Deportes" },
-  { image: "/media/sponsors/camara-comercio-servicios.jpeg", name: "Cámara Argentina de Comercio y Servicios" },
-  { image: "/media/sponsors/cfi.jpeg", name: "Consejo Federal de Inversiones" },
-  { image: "/media/sponsors/jujuy-con-la-gente.jpeg", name: "Jujuy con la gente" },
-  { image: "/media/sponsors/municipalidad-san-salvador.jpeg", name: "Municipalidad de San Salvador de Jujuy" },
+  { image: assetPath("/media/sponsors/kelimpio.jpeg"), name: "Kelimpio" },
+  { image: assetPath("/media/sponsors/cannava.jpeg"), name: "Cannava Sociedad del Estado" },
+  { image: assetPath("/media/sponsors/seguros-jujuy.jpeg"), name: "Compañía de Seguros de Jujuy" },
+  { image: assetPath("/media/sponsors/exar.jpeg"), name: "EXAR" },
+  { image: assetPath("/media/sponsors/turismo-ambiente-deportes.jpeg"), name: "Secretaría de Turismo, Ambiente y Deportes" },
+  { image: assetPath("/media/sponsors/camara-comercio-servicios.jpeg"), name: "Cámara Argentina de Comercio y Servicios" },
+  { image: assetPath("/media/sponsors/cfi.jpeg"), name: "Consejo Federal de Inversiones" },
+  { image: assetPath("/media/sponsors/jujuy-con-la-gente.jpeg"), name: "Jujuy con la gente" },
+  { image: assetPath("/media/sponsors/municipalidad-san-salvador.jpeg"), name: "Municipalidad de San Salvador de Jujuy" },
 ];
 
 function SponsorGroup({ duplicate = false }: { duplicate?: boolean }) {
