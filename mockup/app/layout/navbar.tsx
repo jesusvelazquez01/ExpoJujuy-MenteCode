@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SocialLinks } from "../components/social-links";
 
 export function Navbar() {
   return (
@@ -20,13 +21,15 @@ export function Navbar() {
           <Link href="/#sectores">Expositores</Link>
           <Link href="/#agenda">Agenda Interactiva</Link>
           <Link href="/#noticias">Noticias</Link>
-          <Link href="/#contacto">Contacto</Link>
+          <Link href="/contacto">Contacto</Link>
           <Link href="/#dudas">Dudas</Link>
-          <Link href="/#revista">Revista Interactiva</Link>
         </nav>
-        <Link className="nav-cta" href="/entrada">
-          Obtener entrada <span>↗</span>
-        </Link>
+        <div className="navbar-actions">
+          <SocialLinks className="navbar-socials" />
+          <Link className="nav-cta" href="/entrada">
+            Obtener entrada <span>↗</span>
+          </Link>
+        </div>
         <details className="mobile-menu">
           <summary aria-label="Abrir menú">
             <span />
@@ -37,10 +40,10 @@ export function Navbar() {
             <Link href="/#sectores">Expositores</Link>
             <Link href="/#agenda">Agenda Interactiva</Link>
             <Link href="/#noticias">Noticias</Link>
-            <Link href="/#contacto">Contacto</Link>
+            <Link href="/contacto">Contacto</Link>
             <Link href="/#dudas">Dudas</Link>
-            <Link href="/#revista">Revista Interactiva</Link>
             <Link href="/entrada">Obtener entrada</Link>
+            <SocialLinks className="mobile-socials" />
           </nav>
         </details>
       </div>

@@ -43,7 +43,7 @@ export function ManifestoCarousel() {
   }, [isPaused]);
 
   return (
-    <section className="manifesto" aria-labelledby="manifesto-title">
+    <section className="manifesto" id="provincia" aria-labelledby="manifesto-title">
       <div className="shell manifesto-layout">
         <div className="manifesto-copy">
           <p className="manifesto-kicker">UNA PROVINCIA<br />QUE HACE</p>
